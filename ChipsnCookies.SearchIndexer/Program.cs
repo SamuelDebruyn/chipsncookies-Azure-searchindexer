@@ -87,6 +87,11 @@ namespace ChipsnCookies.SearchIndexer
             catch (Exception e)
             {
                 Console.WriteLine($"[{StopWatch.ElapsedMilliseconds}] {e.GetType().Name} occured: {e.Message}");
+                if(e.InnerException != null)
+                {
+                    Console.WriteLine($"[{StopWatch.ElapsedMilliseconds}] {e.InnerException.GetType().Name} occured: {e.InnerException.Message}");
+                }
+
                 Environment.Exit(1);
                 return;
             }
