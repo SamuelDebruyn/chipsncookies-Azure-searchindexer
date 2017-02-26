@@ -56,7 +56,7 @@ namespace ChipsnCookies.SearchIndexer
                             Fields = FieldBuilder.BuildForType<Document>(),
                             ScoringProfiles = new ScoringProfile[] { scoringProfile },
                             DefaultScoringProfile = scoringProfile.Name,
-                            CorsOptions = new CorsOptions(new string[] { "*" })
+                            CorsOptions = new CorsOptions(new string[] { "*" }){ MaxAgeInSeconds = 3600; }
                         };
                         Console.WriteLine($"[{StopWatch.ElapsedMilliseconds}] Index built, creating on Azure...");
                         searchServiceClient.Indexes.Create(index);
