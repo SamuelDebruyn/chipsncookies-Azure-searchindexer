@@ -8,14 +8,11 @@ namespace ChipsnCookies.SearchIndexer
     [SerializePropertyNamesAsCamelCase]
     public class Document
     {
-        [IsSearchable, IsRetrievable(true), Scoring(1)]
+        [IsSearchable, IsRetrievable(false), Scoring(1)]
         public string Content { get; set; }
 
         [IsFilterable, IsSortable, IsFacetable, IsRetrievable(true)]
         public DateTimeOffset Date { get; set; }
-
-        [IsFilterable, IsSortable, IsSearchable, IsRetrievable(true), Scoring(8)]
-        public string Section { get; set; }
 
         [IsFilterable, IsFacetable, IsSearchable, IsRetrievable(true), Scoring(9)]
         public string[] Tags { get; set; }
