@@ -23,7 +23,7 @@ namespace ChipsnCookies.SearchIndexer
         [IsSortable, IsSearchable, IsRetrievable(true), Scoring(10)]
         public string Title { get; set; }
         
-        [Key, IsRetrievable(false)]
+        [Key]
         public string Uid { get; set; }
 
         [IsRetrievable(true)]
