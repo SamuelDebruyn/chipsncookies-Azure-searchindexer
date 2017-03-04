@@ -14,13 +14,16 @@ namespace ChipsnCookies.SearchIndexer
         [IsFilterable, IsSortable, IsFacetable, IsRetrievable(true)]
         public DateTimeOffset Date { get; set; }
 
+        [IsRetrievable(true)]
+        public string TextualDate  {get; set; }
+
         [IsFilterable, IsFacetable, IsSearchable, IsRetrievable(true), Scoring(9)]
         public string[] Tags { get; set; }
 
         [IsSortable, IsSearchable, IsRetrievable(true), Scoring(10)]
         public string Title { get; set; }
         
-        [Key]
+        [Key, IsRetrievable(false)]
         public string Uid { get; set; }
 
         [IsRetrievable(true)]
