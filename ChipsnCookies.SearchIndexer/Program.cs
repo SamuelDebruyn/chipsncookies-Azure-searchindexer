@@ -31,7 +31,7 @@ namespace ChipsnCookies.SearchIndexer
                 Console.WriteLine($"[{StopWatch.ElapsedMilliseconds}] Deserialing JSON...");
                 var list = JsonConvert.DeserializeObject<List<Document>>(json)?.Where(d => !string.IsNullOrEmpty(d.Uid) && !string.IsNullOrEmpty(d.Content) && !string.IsNullOrEmpty(d.Rendered) && !string.IsNullOrEmpty(d.Title));
 
-                if (list == null || list.Any())
+                if (list == null || !list.Any())
                 {
                     Console.WriteLine($"[{StopWatch.ElapsedMilliseconds}] No documents found");
                     Environment.Exit(1);
