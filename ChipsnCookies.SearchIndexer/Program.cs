@@ -29,7 +29,7 @@ namespace ChipsnCookies.SearchIndexer
                 Console.WriteLine($"[{StopWatch.ElapsedMilliseconds}] Read {json.Length} characters");
 
                 Console.WriteLine($"[{StopWatch.ElapsedMilliseconds}] Deserialing JSON...");
-                List<Document> list = JsonConvert.DeserializeObject<List<Document>>(json);
+                List<Document> list = JsonConvert.DeserializeObject<List<Document>>(json)?.Where(d => !string.IsNullOrEmpty(d.Uid) && !string.IsNullOrEmpty(d.Content) && !string.IsNullOrEmpty(d.Rendered) && !string.IsNullOrEmpty(d.Title));
 
                 if (list == null || list.Count == 0)
                 {
