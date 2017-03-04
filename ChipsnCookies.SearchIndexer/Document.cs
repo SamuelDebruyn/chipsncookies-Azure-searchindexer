@@ -17,6 +17,9 @@ namespace ChipsnCookies.SearchIndexer
         [IsRetrievable(true)]
         public string TextualDate  {get; set; }
 
+        [IsRetrievable(true)]
+        public string Rendered  {get; set; }
+
         [IsFilterable, IsFacetable, IsSearchable, IsRetrievable(true), Scoring(9)]
         public string[] Tags { get; set; }
 
